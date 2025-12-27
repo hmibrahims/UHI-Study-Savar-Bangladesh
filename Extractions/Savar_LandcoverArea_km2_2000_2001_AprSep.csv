@@ -1,0 +1,5 @@
+system:index,Area_km2,Class,.geo
+0,16.322474580219332,Urban,"{""type"":""MultiPoint"",""coordinates"":[]}"
+1,206.21294068686439,RuralVeg,"{""type"":""MultiPoint"",""coordinates"":[]}"
+2,79.10924997799258,Water,"{""type"":""MultiPoint"",""coordinates"":[]}"
+3,49.815929008429315,Other,"{""type"":""MultiPoint"",""coordinates"":[]}"
