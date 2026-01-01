@@ -1,0 +1,13 @@
+<PAMDataset>
+  <PAMRasterBand band="1">
+    <Description>UHI_C</Description>
+    <Metadata>
+      <MDI key="STATISTICS_APPROXIMATE">YES</MDI>
+      <MDI key="STATISTICS_MINIMUM">-7.6450639733615</MDI>
+      <MDI key="STATISTICS_MAXIMUM">17.499600156639</MDI>
+      <MDI key="STATISTICS_MEAN">3.2779167610669</MDI>
+      <MDI key="STATISTICS_STDDEV">3.8528680671969</MDI>
+      <MDI key="STATISTICS_VALID_PERCENT">7.546</MDI>
+    </Metadata>
+  </PAMRasterBand>
+</PAMDataset>
