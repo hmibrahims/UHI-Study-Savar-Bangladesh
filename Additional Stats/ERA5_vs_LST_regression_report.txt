@@ -1,0 +1,138 @@
+=== GROUP-LEVEL CONSISTENCY ANALYSIS ===
+ERA5: scene-matched t2m aggregated to year_group (mean as primary).
+LST: year_group composite means (Urban/Rural) + SUHI mean.
+
+---- Correlations ----
+          metric  pearson_r spearman_r
+1 Urban LST mean -0.7482191 -0.6571429
+2 Rural LST mean -0.6046317 -0.4857143
+3      SUHI mean -0.5615307 -0.3714286
+
+---- Linear models (raw units) ----
+
+[Urban mean ~ ERA5 mean]
+
+Call:
+stats::lm(formula = Urban_Mean_C ~ era5_mean_C, data = merged)
+
+Residuals:
+     1      2      3      4      5      6 
+ 2.871  1.298 -2.492 -1.464 -1.616  1.404 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)  
+(Intercept)  119.624     34.693   3.448   0.0261 *
+era5_mean_C   -2.420      1.073  -2.256   0.0871 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.391 on 4 degrees of freedom
+Multiple R-squared:  0.5598,	Adjusted R-squared:  0.4498 
+F-statistic: 5.087 on 1 and 4 DF,  p-value: 0.08711
+
+
+[Rural mean ~ ERA5 mean]
+
+Call:
+stats::lm(formula = Rural_Mean_C ~ era5_mean_C, data = merged)
+
+Residuals:
+       1        2        3        4        5        6 
+ 3.39383  2.33434 -1.85792 -2.06853 -1.81209  0.01037 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)  
+(Intercept)   96.534     38.381   2.515   0.0657 .
+era5_mean_C   -1.802      1.187  -1.518   0.2036  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.645 on 4 degrees of freedom
+Multiple R-squared:  0.3656,	Adjusted R-squared:  0.207 
+F-statistic: 2.305 on 1 and 4 DF,  p-value: 0.2036
+
+
+[SUHI mean  ~ ERA5 mean]
+
+Call:
+stats::lm(formula = SUHI_Mean_C ~ era5_mean_C, data = merged)
+
+Residuals:
+      1       2       3       4       5       6 
+-0.5292 -1.0334 -0.6321  0.6096  0.1893  1.3958 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept)  23.0535    14.6974   1.569    0.192
+era5_mean_C  -0.6170     0.4546  -1.357    0.246
+
+Residual standard error: 1.013 on 4 degrees of freedom
+Multiple R-squared:  0.3153,	Adjusted R-squared:  0.1441 
+F-statistic: 1.842 on 1 and 4 DF,  p-value: 0.2462
+
+
+---- Linear models (z-scored) ----
+
+[Urban z ~ ERA5 z]
+
+Call:
+stats::lm(formula = urban_mean_z ~ era5_mean_z, data = merged)
+
+Residuals:
+      1       2       3       4       5       6 
+ 0.8907  0.4026 -0.7733 -0.4542 -0.5014  0.4356 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)  
+(Intercept)  5.100e-16  3.028e-01   0.000   1.0000  
+era5_mean_z -7.482e-01  3.317e-01  -2.256   0.0871 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.7418 on 4 degrees of freedom
+Multiple R-squared:  0.5598,	Adjusted R-squared:  0.4498 
+F-statistic: 5.087 on 1 and 4 DF,  p-value: 0.08711
+
+
+[Rural z ~ ERA5 z]
+
+Call:
+stats::lm(formula = rural_mean_z ~ era5_mean_z, data = merged)
+
+Residuals:
+       1        2        3        4        5        6 
+ 1.14269  0.78596 -0.62555 -0.69646 -0.61012  0.00349 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)
+(Intercept)  2.307e-15  3.636e-01   0.000    1.000
+era5_mean_z -6.046e-01  3.983e-01  -1.518    0.204
+
+Residual standard error: 0.8905 on 4 degrees of freedom
+Multiple R-squared:  0.3656,	Adjusted R-squared:  0.207 
+F-statistic: 2.305 on 1 and 4 DF,  p-value: 0.2036
+
+
+[SUHI z  ~ ERA5 z]
+
+Call:
+stats::lm(formula = suhi_mean_z ~ era5_mean_z, data = merged)
+
+Residuals:
+      1       2       3       4       5       6 
+-0.4834 -0.9440 -0.5773  0.5568  0.1729  1.2750 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)
+(Intercept)  1.022e-15  3.777e-01   0.000    1.000
+era5_mean_z -5.615e-01  4.137e-01  -1.357    0.246
+
+Residual standard error: 0.9251 on 4 degrees of freedom
+Multiple R-squared:  0.3153,	Adjusted R-squared:  0.1441 
+F-statistic: 1.842 on 1 and 4 DF,  p-value: 0.2462
+
+
+---- Interpretation guardrails ----
+* This is consistency / plausibility checking, not strict validation.
+* ERA5 is air temperature; Landsat is surface temperature.
+* No scene-level LST was available; analysis is at year_group level.

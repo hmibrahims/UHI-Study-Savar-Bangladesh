@@ -1,0 +1,8 @@
+system:index,Area_km2,Class,Percent_of_total,.geo
+0,348.2129165367244,Total,100.0,"{""type"":""MultiPoint"",""coordinates"":[]}"
+1,348.2129165367243,Valid_data,99.99999999999999,"{""type"":""MultiPoint"",""coordinates"":[]}"
+2,5.684341886080802E-14,NoData,1.6324328065186234E-14,"{""type"":""MultiPoint"",""coordinates"":[]}"
+3,69.65174422221922,Water,20.002630837180156,"{""type"":""MultiPoint"",""coordinates"":[]}"
+4,202.63227077531968,Vegetation,58.19206041828405,"{""type"":""MultiPoint"",""coordinates"":[]}"
+5,83.64422351630209,Urban,24.020999665439042,"{""type"":""MultiPoint"",""coordinates"":[]}"
+6,7.8997264957620095,Other,2.2686483242297713,"{""type"":""MultiPoint"",""coordinates"":[]}"
